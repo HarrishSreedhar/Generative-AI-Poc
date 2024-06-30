@@ -26,9 +26,7 @@ st.header("Chatbot")
 st.title("File Uploader")
 os.environ["OPENAI_API_KEY"] = "test-key"
 
-# +
-# pdf_file = st.file_uploader("Upload any PDF", type="pdf")
-pdf_file = open("Aashika-resume.pdf","rb")
+pdf_file = st.file_uploader("Upload any PDF", type="pdf")
 if pdf_file is not None:
     text = ""
     pdf_reader = PdfReader(pdf_file)
@@ -56,11 +54,7 @@ if pdf_file is not None:
         chain = load_qa_chain(LLM, chain_type="stuff")
         response = chain.run(input = match, question = user_question)
         st.write(response)
-
-        
-        
-# -
-
-
-
-
+    else:
+        st.write("Kindly enter a valid prompt get a response)
+else:
+    st.write("Kindly upload a valid PDF to get a response)
