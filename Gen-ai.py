@@ -52,7 +52,7 @@ if pdf_file is not None:
             model_name = "gpt-3.5-turbo")
 
         chain = load_qa_chain(LLM, chain_type="stuff")
-        response = chain.run(input = match, question = user_question)
+        response = chain.run(input = matched_data, question = user_question)
         st.write(response)
     else:
         st.write("Kindly enter a valid prompt get a response)
